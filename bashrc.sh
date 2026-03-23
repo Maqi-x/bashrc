@@ -43,7 +43,11 @@ alias edit-bashrc-adv='$EDITOR "$BASHRC_DIR" && reload'
 alias edit-nvim-cfg='$EDITOR "$HOME/.config/nvim/init.lua"'
 alias vencord='sh -c "$(curl -sS https://vencord.dev/install.sh)"'
 
-alias winreboot='sudo grub-reboot "Windows Boot Manager (on /dev/nvme0n1p1)" && sudo reboot'
+win-reboot() {
+    grub-editenv /boot/grub/grubenv set boot_timeout=1
+    grub-reboot "Windows Boot Manager (on /dev/nvme0n1p1)"
+    reboot
+}
 
 # apps
 has-cmd starship && eval "$(starship init bash)"
