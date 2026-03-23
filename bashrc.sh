@@ -44,9 +44,9 @@ alias edit-nvim-cfg='$EDITOR "$HOME/.config/nvim/init.lua"'
 alias vencord='sh -c "$(curl -sS https://vencord.dev/install.sh)"'
 
 win-reboot() {
-    grub-editenv /boot/grub/grubenv set boot_timeout=1
-    grub-reboot "Windows Boot Manager (on /dev/nvme0n1p1)"
-    reboot
+    sudo grub-editenv /boot/grub/grubenv set boot_timeout=1
+    sudo grub-reboot "Windows Boot Manager (on /dev/nvme0n1p1)"
+    sudo reboot
 }
 
 # apps
