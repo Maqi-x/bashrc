@@ -66,6 +66,11 @@ full-upgrade() {
     flatpak update -y
 
     rm -rf ~/.cache/*
+
+    if [[ "$1" = "-y" ]]; then
+        sudo systemctl reboot
+    fi
+
     read -r -p "[Y/n] recommended reboot. reboot now?" response
     case "$response" in
     [nN]) 
