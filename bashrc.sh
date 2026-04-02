@@ -47,7 +47,7 @@ alias vencord='sh -c "$(curl -sS https://vencord.dev/install.sh)"'
 
 win-reboot() {
     sudo grub-editenv /boot/grub/grubenv set boot_timeout=1
-    sudo grub-reboot "Windows Boot Manager (on /dev/nvme0n1p1)"
+    sudo grub-reboot 'osprober-efi-6CD8-590C'
     sudo reboot
 }
 
