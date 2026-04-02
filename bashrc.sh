@@ -60,8 +60,7 @@ full-upgrade() {
         --noconfirm \
         --answerdiff None \
         --answerclean None \
-        --removemake \
-        --ignore-outofdate
+        --removemake
 
     flatpak update -y
 
