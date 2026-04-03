@@ -51,36 +51,6 @@ win-reboot() {
     sudo reboot
 }
 
-full-upgrade() {
-    sudo pacman -Syu --noconfirm
-
-    sudo fwupdmgr update -y --no-reboot-check
-
-    yay -Syu \
-        --noconfirm \
-        --answerdiff None \
-        --answerclean None \
-        --removemake
-
-    flatpak update -y
-
-    rm -rf ~/.cache/*
-
-    if [[ "$1" = "-y" ]]; then
-        sudo systemctl reboot
-    fi
-
-    read -r -p "[Y/n] recommended reboot. reboot now?" response
-    case "$response" in
-    [nN]) 
-        return
-        ;;
-    *)
-        sudo systemctl reboot
-        ;;
-    esac
-}
-
 # apps
 has-cmd starship && eval "$(starship init bash)"
 has-cmd zoxide   && eval "$(zoxide init bash)"
