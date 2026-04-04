@@ -41,6 +41,7 @@ alias l='ll'
 
 alias reload='source "$BASHRC_FILE"'
 alias edit-bashrc='$EDITOR "$BASHRC_FILE" && reload'
+alias edit-bashrc-local='$EDITOR "$BASHRC_DIR/bashrc.local.sh" && reload'
 alias edit-bashrc-adv='$EDITOR "$BASHRC_DIR" && reload'
 alias edit-nvim-cfg='$EDITOR "$HOME/.config/nvim/init.lua"'
 alias vencord='sh -c "$(curl -sS https://vencord.dev/install.sh)"'
