@@ -29,6 +29,9 @@ export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 add-path-front "$PYENV_ROOT/bin"
 
+export ZAPUP_SHIMS="$XDG_DATA_HOME/zapup/shims"
+add-path-front "$ZAPUP_SHIMS"
+
 export PATH
 
 # basic aliases
@@ -51,6 +54,9 @@ win-reboot() {
     sudo grub-reboot 'osprober-efi-6CD8-590C'
     sudo reboot
 }
+
+export CC="ccache cc"
+export CXX="ccache c++"
 
 # apps
 has-cmd starship && eval "$(starship init bash)"
