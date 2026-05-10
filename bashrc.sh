@@ -32,6 +32,8 @@ add-path-front "$PYENV_ROOT/bin"
 export ZAPUP_SHIMS="$XDG_DATA_HOME/zapup/shims"
 add-path-front "$ZAPUP_SHIMS"
 
+add-path-front "$ANDROID_HOME/platform-tools"
+
 export PATH
 
 # basic aliases
@@ -46,7 +48,11 @@ alias reload='source "$BASHRC_FILE"'
 alias edit-bashrc='$EDITOR "$BASHRC_FILE" && reload'
 alias edit-bashrc-local='$EDITOR "$BASHRC_DIR/bashrc.local.sh" && reload'
 alias edit-bashrc-adv='$EDITOR "$BASHRC_DIR" && reload'
+
 alias edit-nvim-cfg='$EDITOR "$HOME/.config/nvim/init.lua"'
+alias edit-nvim-snippets='$EDITOR "$HOME/.config/nvim/snippets"'
+alias edit-nvim-cfg-adv='$EDITOR "$HOME/.config/nvim/"'
+
 alias vencord='sh -c "$(curl -sS https://vencord.dev/install.sh)"'
 
 win-reboot() {
