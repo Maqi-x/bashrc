@@ -24,6 +24,9 @@ add-path "$HOME/.local/bin"
 add-path "$HOME/flutter/bin"
 add-path "$HOME/scripts/bin"
 
+export CARGO_HOME="$HOME/.local/share/cargo"
+add-path "$CARGO_HOME/bin/"
+
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv"

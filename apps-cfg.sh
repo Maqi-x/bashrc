@@ -1,5 +1,5 @@
 export ANDROID_USER_HOME="$XDG_DATA_HOME/android"
-export ANDROID_HOME="$XDG_DATA_HOME/android/sdk"
+export ANDROID_HOME="$XDG_DATA_HOME/android/Sdk"
 
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"

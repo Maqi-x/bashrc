@@ -1,4 +1,4 @@
-export XDG_DESKTOP_DIR="$HOME/desktop"
+export XDG_DESKTOP_DIR="$HOME/documents"
 export XDG_DOWNLOAD_DIR="$HOME/downloads"
 export XDG_TEMPLATES_DIR="$HOME/templates"
 export XDG_PUBLICSHARE_DIR="$HOME/"
