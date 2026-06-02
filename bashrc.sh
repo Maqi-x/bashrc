@@ -6,6 +6,8 @@ BASHRC_DIR="$HOME/configuration/bashrc/"
 BASHRC_FILE="$BASHRC_DIR/bashrc.sh"
 source "$BASHRC_DIR/funcs.sh"
 
+export HISTFILE="$XDG_STATE_HOME/bash/history"
+
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
