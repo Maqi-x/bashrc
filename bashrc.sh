@@ -21,6 +21,9 @@ source-if-exists "$BASHRC_DIR/bashrc.local.sh"
 source-if-exists "$BASHRC_DIR/xdg-dirs.sh"
 source-if-exists "$BASHRC_DIR/apps-cfg.sh"
 
+# fancy custom command not found handler
+source-if-exists "$BASHRC_DIR/cmd-not-found.sh"
+
 add-path "$HOME/.cargo/bin"
 add-path "$HOME/.local/bin"
 add-path "$HOME/flutter/bin"
