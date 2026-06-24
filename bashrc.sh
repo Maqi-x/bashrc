@@ -6,8 +6,6 @@ BASHRC_DIR="$HOME/configuration/bashrc/"
 BASHRC_FILE="$BASHRC_DIR/bashrc.sh"
 source "$BASHRC_DIR/funcs.sh"
 
-export HISTFILE="$XDG_STATE_HOME/bash/history"
-
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
@@ -24,10 +22,15 @@ source-if-exists "$BASHRC_DIR/apps-cfg.sh"
 # fancy custom command not found handler
 source-if-exists "$BASHRC_DIR/cmd-not-found.sh"
 
+# aliases
+source-if-exists "$BASHRC_DIR/aliases.sh"
+
 add-path "$HOME/.cargo/bin"
 add-path "$HOME/.local/bin"
 add-path "$HOME/flutter/bin"
 add-path "$HOME/scripts/bin"
+
+export HISTFILE="$XDG_STATE_HOME/bash/history"
 
 export CARGO_HOME="$HOME/.local/share/cargo"
 add-path "$CARGO_HOME/bin/"
@@ -54,12 +57,13 @@ alias l='ll'
 
 alias reload='source "$BASHRC_FILE"'
 alias edit-bashrc='$EDITOR "$BASHRC_FILE" && reload'
+alias edit-aliases='$EDITOR "$BASHRC_DIR/aliases.sh" && reload'
 alias edit-bashrc-local='$EDITOR "$BASHRC_DIR/bashrc.local.sh" && reload'
 alias edit-bashrc-adv='$EDITOR "$BASHRC_DIR" && reload'
 
-alias edit-nvim-cfg='$EDITOR "$HOME/.config/nvim/init.lua"'
+alias edit-nvim='$EDITOR "$HOME/.config/nvim/"'
+alias edit-nvim-syntax='$EDITOR "$HOME/.config/nvim/syntax/"'
 alias edit-nvim-snippets='$EDITOR "$HOME/.config/nvim/snippets"'
-alias edit-nvim-cfg-adv='$EDITOR "$HOME/.config/nvim/"'
 
 alias vencord='sh -c "$(curl -sS https://vencord.dev/install.sh)"'
 
