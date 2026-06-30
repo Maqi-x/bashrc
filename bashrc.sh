@@ -61,7 +61,7 @@ alias edit-aliases='$EDITOR "$BASHRC_DIR/aliases.sh" && reload'
 alias edit-bashrc-local='$EDITOR "$BASHRC_DIR/bashrc.local.sh" && reload'
 alias edit-bashrc-adv='$EDITOR "$BASHRC_DIR" && reload'
 
-alias edit-nvim='$EDITOR "$HOME/.config/nvim/"'
+alias edit-nvim-cfg='$EDITOR "$HOME/.config/nvim/"'
 alias edit-nvim-syntax='$EDITOR "$HOME/.config/nvim/syntax/"'
 alias edit-nvim-snippets='$EDITOR "$HOME/.config/nvim/snippets"'
 
