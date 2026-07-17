@@ -29,6 +29,7 @@ add-path "$HOME/.cargo/bin"
 add-path "$HOME/.local/bin"
 add-path "$HOME/flutter/bin"
 add-path "$HOME/scripts/bin"
+add-path "$HOME/.gem/ruby/3.4.0/bin"
 
 export HISTFILE="$XDG_STATE_HOME/bash/history"
 

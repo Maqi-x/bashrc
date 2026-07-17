@@ -1,6 +1,12 @@
 export ANDROID_USER_HOME="$XDG_DATA_HOME/android"
 export ANDROID_HOME="$XDG_DATA_HOME/android/Sdk"
 
+export FPCDIR="/usr/lib/fpc/src"
+export PP="/usr/lib/fpc/3.2.2/ppcx64"
+export LAZARUSDIR="/usr/lib/lazarus"
+export FPCTARGET="linux"
+export FPCTARGETCPU="x86_64"
+
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export DUB_HOME="$XDG_DATA_HOME/dub"

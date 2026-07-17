@@ -11,6 +11,9 @@ alias zapupd='zapup sync -j24'
 alias dpcpp='icpx -fsycl'
 
 # other
+alias zed='zeditor'
+alias cat='bat -pp'
+
 v() {
     local file; file="$(mktemp)"
     $EDITOR "$file"
