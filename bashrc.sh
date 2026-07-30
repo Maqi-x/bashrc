@@ -15,6 +15,9 @@ fi
 
 source-if-exists "$BASHRC_DIR/bashrc.local.sh"
 
+# shell options
+shopt -s globstar
+
 # system path
 source-if-exists "$BASHRC_DIR/xdg-dirs.sh"
 source-if-exists "$BASHRC_DIR/apps-cfg.sh"
@@ -46,27 +49,11 @@ add-path-front "$ZAPUP_SHIMS"
 
 add-path-front "$ANDROID_HOME/platform-tools"
 
+# toolchains
+add-path-front "/opt/cross/x86_64-linux-musl/bin/"
+add-path-front "/opt/cross/aarch64-linux-musl/bin/"
+
 export PATH
-
-# basic aliases
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-
-alias la='ls -a'
-alias ll='ls -l'
-alias l='ll'
-
-alias reload='source "$BASHRC_FILE"'
-alias edit-bashrc='$EDITOR "$BASHRC_FILE" && reload'
-alias edit-aliases='$EDITOR "$BASHRC_DIR/aliases.sh" && reload'
-alias edit-bashrc-local='$EDITOR "$BASHRC_DIR/bashrc.local.sh" && reload'
-alias edit-bashrc-adv='$EDITOR "$BASHRC_DIR" && reload'
-
-alias edit-nvim-cfg='$EDITOR "$HOME/.config/nvim/"'
-alias edit-nvim-syntax='$EDITOR "$HOME/.config/nvim/syntax/"'
-alias edit-nvim-snippets='$EDITOR "$HOME/.config/nvim/snippets"'
-
-alias vencord='sh -c "$(curl -sS https://vencord.dev/install.sh)"'
 
 win-reboot() {
     sudo grub-editenv /boot/grub/grubenv set boot_timeout=1
