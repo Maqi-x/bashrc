@@ -24,17 +24,27 @@ alias gc='git commit'
 alias gdc='git diff --cached'
 
 # zapup
-alias zapupd='zapup sync -j24'
+if has-cmd zapup; then
+    alias zapupd='zapup sync -j24'
+fi
 
 # dpcpp
-alias dpcpp='icpx -fsycl'
+if has-cmd icpx; then
+    alias dpcpp='icpx -fsycl'
+fi
 
 # other
-alias zed='zeditor'
-alias cat='bat -pp'
-alias n='nvim'
-alias nn='nvim .'
-alias n.='nvim .'
+if has-cmd zeditor && ! has-cmd zed; then
+    alias zed='zeditor'
+fi
+if has-cmd bat; then
+    alias cat='bat -pp'
+fi
+if has-cmd nvim; then
+    alias n='nvim'
+    alias nn='nvim .'
+    alias n.='nvim .'
+fi
 
 # slopmake
 alias slopmake='cmake'

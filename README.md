@@ -14,6 +14,19 @@ This will:
 * backup existing `~/.bashrc` (if needed)
 * create a symlink to the new config
 
+## Integrations
+### Optional
+`starship`, `zoxide`, `bat`, `pyenv`, `ccache`
+### Required (kind of)
+`nvim`, `git`, `bash` (wow!)
+### Installation
+#### Arch Linux
+`sudo pacman -S neovim git bash starship zoxide bat pyenv ccache`
+
+#### Debian/Ubuntu
+`sudo apt install zoxide bat pyenv ccache nvim git bash`
+`curl -sS https://starship.rs/install.sh | sh`
+
 ## Notes
 - You may need to adjust paths, environment variables, or aliases for your system.
 - Review the files before installing to ensure compatibility.

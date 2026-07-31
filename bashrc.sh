@@ -61,8 +61,10 @@ win-reboot() {
     sudo reboot
 }
 
-export CC="ccache cc"
-export CXX="ccache c++"
+if has-cmd ccache; then
+    export CC="ccache cc"
+    export CXX="ccache c++"
+fi
 
 # apps
 has-cmd starship && eval "$(starship init bash)"
