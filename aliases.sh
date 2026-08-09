@@ -24,6 +24,7 @@ alias gst='git status'
 alias ga='git add'
 alias gc='git commit'
 alias gdc='git diff --cached'
+alias gca='git commit --amend'
 
 # zapup
 if has-cmd zapup; then
