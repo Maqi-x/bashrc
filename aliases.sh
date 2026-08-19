@@ -44,9 +44,9 @@ if has-cmd bat; then
     alias cat='bat -pp'
 fi
 if has-cmd nvim; then
-    alias n='nvim'
-    alias nn='nvim .'
-    alias n.='nvim .'
+    alias n='command nvim'
+    alias nn='command nvim .'
+    alias n.='command nvim .'
 fi
 
 # slopmake
