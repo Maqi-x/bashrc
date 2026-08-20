@@ -29,6 +29,30 @@ print-suggestion() {
     echo -e "\033[1;36mnote: \033[0m did you mean: $1?" >&2
 }
 
+search-pacman() {
+    local pkgs
+    if command -v pkgfile &>/dev/null; then
+        pkgs=$(pkgfile -q "$1" 2>/dev/null | sort -u)
+    fi
+    if [[ -n "$pkgs" ]]; then
+        echo -e "\033[1;32mpacmn:\033[0m packages matching '$1': \033[1m$(echo "$pkgs" | xargs)\033[0m" >&2
+        return 0
+    fi
+    return 1
+}
+
+search-aur() {
+    # AUR
+    local pkgs
+    if command -v yay &>/dev/null; then
+        pkgs=$(yay -Ssq "$1" 2>/dev/null | grep -xE "${1}(-bin|-git|-svn)?" | sort -u)
+    fi
+
+    if [[ -n "$pkgs" ]]; then
+        echo -e "\033[1;35maur:  \033[0m packages matching '$1': \033[1m$(echo "$pkgs" | xargs)\033[0m" >&2
+    fi
+}
+
 command_not_found_handle() {
     if try-eval "$*"; then
         return
@@ -40,6 +64,15 @@ command_not_found_handle() {
     print-msg "$1"
     if [[ -n $suggestion ]]; then
         print-suggestion "$suggestion"
+
+        # searching aur is slow, let's skip it here
+        search-pacman "$1" ||:
+    else
+        if ! search-pacman "$1"; then
+            # again, searching aur is slow so let's just skip it if we found a pacman package
+            search-aur "$1" ||:
+        fi
     fi
+
     return 127
 }
