@@ -52,6 +52,9 @@ fi
 # slopmake
 alias slopmake='cmake'
 
+# simh
+alias pdp11='simh-pdp11'
+
 v() {
     local file; file="$(mktemp)"
     $EDITOR "$file"
