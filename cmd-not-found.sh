@@ -1,4 +1,4 @@
-try-eal() {
+try-eval() {
     if [[ "$1" =~ ^[0-9[:space:]+*/%^()-]+$ ]]; then
         local result; result=$(echo "$1" | bc 2>/dev/null)
         if [ -n "$result" ]; then
