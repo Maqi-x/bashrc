@@ -1,4 +1,4 @@
-try-eval() {
+try-eal() {
     if [[ "$1" =~ ^[0-9[:space:]+*/%^()-]+$ ]]; then
         local result; result=$(echo "$1" | bc 2>/dev/null)
         if [ -n "$result" ]; then
@@ -29,9 +29,9 @@ print-suggestion() {
     echo -e "\033[1;36mnote: \033[0m did you mean: $1?" >&2
 }
 
-search-pacman() {
+search-repo() {
     local pkgs
-    if command -v pkgfile &>/dev/null; then
+    if has-cmd pkgfile; then
         pkgs=$(pkgfile -q "$1" 2>/dev/null | sort -u)
     fi
     if [[ -n "$pkgs" ]]; then
@@ -42,9 +42,8 @@ search-pacman() {
 }
 
 search-aur() {
-    # AUR
     local pkgs
-    if command -v yay &>/dev/null; then
+    if has-cmd yay; then
         pkgs=$(yay -Ssq "$1" 2>/dev/null | grep -xE "${1}(-bin|-git|-svn)?" | sort -u)
     fi
 
@@ -54,7 +53,7 @@ search-aur() {
 }
 
 command_not_found_handle() {
-    if try-eval "$*"; then
+    if has-cmd bc && try-eval "$*"; then
         return
     fi
 
@@ -66,9 +65,9 @@ command_not_found_handle() {
         print-suggestion "$suggestion"
 
         # searching aur is slow, let's skip it here
-        search-pacman "$1" ||:
+        search-repo "$1" ||:
     else
-        if ! search-pacman "$1"; then
+        if ! search-repo "$1"; then
             # again, searching aur is slow so let's just skip it if we found a pacman package
             search-aur "$1" ||:
         fi

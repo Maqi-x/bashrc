@@ -40,9 +40,14 @@ fi
 if has-cmd zeditor && ! has-cmd zed; then
     alias zed='zeditor'
 fi
+
 if has-cmd bat; then
     alias cat='bat -pp'
+elif has-cmd batcat; then
+    alias bat='batcat -pp'
+    alias cat='batcat -pp'
 fi
+
 if has-cmd nvim; then
     alias n='command nvim'
     alias nn='command nvim .'
