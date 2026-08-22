@@ -52,6 +52,12 @@ if has-cmd nvim; then
     alias n='command nvim'
     alias nn='command nvim .'
     alias n.='command nvim .'
+    if has-cmd z; then
+        zz() {
+            z "$@"
+            command nvim .
+        }
+    fi
 fi
 
 # slopmake
