@@ -8,10 +8,9 @@ alias l='ll'
 
 # configs
 alias reload='source "$BASHRC_FILE"'
-alias edit-bashrc='$EDITOR "$BASHRC_FILE" && reload'
+alias edit-bashrc='$EDITOR "$BASHRC_DIR" && reload'
 alias edit-aliases='$EDITOR "$BASHRC_DIR/aliases.sh" && reload'
 alias edit-bashrc-local='$EDITOR "$BASHRC_DIR/bashrc.local.sh" && reload'
-alias edit-bashrc-adv='$EDITOR "$BASHRC_DIR" && reload'
 
 alias edit-inputrc='$EDITOR ~/.inputrc && bind -f ~/.inputrc'
 
@@ -25,6 +24,18 @@ alias ga='git add'
 alias gc='git commit'
 alias gdc='git diff --cached'
 alias gca='git commit --amend'
+
+# clipboard
+if has-cmd wl-copy && has-cmd wl-copy; then
+    alias cset='wl-copy'
+    alias cget='wl-paste'
+elif has-cmd xclip; then
+    alias cset='xclip -selection clipboard'
+    alias cget='xclip -selection clipboard -o'
+else
+    alias cset='echo Keep Yourself Safe'
+    alias cget='echo Keep Yourself Safe'
+fi
 
 # zapup
 if has-cmd zapup; then
