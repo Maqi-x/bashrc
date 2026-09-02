@@ -3,17 +3,27 @@
 
 # basic configuration
 BASHRC_DIR="$HOME/configuration/bashrc/"
+# shellcheck disable=SC2034
 BASHRC_FILE="$BASHRC_DIR/bashrc.sh"
+
 source "$BASHRC_DIR/funcs.sh"
 
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+if [[ -n "$TILIX_ID" ]] || [[ -n "$VTE_VERSION" ]]; then
     source /etc/profile.d/vte.sh
 fi
 
+# shopts
+shopt -s autocd cdspell dirspell globstar
+shopt -s cmdhist checkwinsize nullglob
+
+# local configuration
 source-if-exists "$BASHRC_DIR/bashrc.local.sh"
+for script in "$BASHRC_DIR"/local/*; do
+    source-if-exists "$script"
+done
 
 # shell options
 shopt -s globstar
@@ -33,6 +43,7 @@ add-path "$HOME/.local/bin"
 add-path "$HOME/flutter/bin"
 add-path "$HOME/scripts/bin"
 add-path "$HOME/.gem/ruby/3.4.0/bin"
+add-path "/usr/lib/emscripten"
 
 export HISTFILE="$XDG_STATE_HOME/bash/history"
 
