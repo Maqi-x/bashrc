@@ -6,6 +6,8 @@ alias la='ls -a'
 alias ll='ls -l'
 alias l='ll'
 
+alias md='mkdir'
+
 # configs
 alias reload='source "$BASHRC_FILE"'
 alias edit-bashrc='$EDITOR "$BASHRC_DIR" && reload'
